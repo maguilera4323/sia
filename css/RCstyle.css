@@ -56,10 +56,10 @@ body {
 }
 
 input[type="text"] {
-    width: 97%;
+    width: 70%;
     height: 25px;
     margin: 0 0 15px;
-    padding: 10px 1%;
+    padding: 8px 1%;
     font-size: 18px;
 	
 	-webkit-border-radius: 3px;

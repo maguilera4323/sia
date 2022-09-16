@@ -18,7 +18,7 @@
 			<div class="row justify-content-center">
             <form action="config_login/loguear.php" method="POST" id="formlg">
 				<div class="col-md-6 text-center mb-5">
-					<h2 class="heading-section">City Coffe</h2>
+					<!-- <h2 class="heading-section">City Coffe</h2> -->
 				</div>
 			</div>
 		<form action="config_login/loguear.php" method="POST" id="formlg">

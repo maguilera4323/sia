@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Recuperación de Contraseña</title>
     <link rel="stylesheet" href="css/RCstyle.css">
 </head>
 <body>
@@ -23,8 +23,8 @@
             <br>
            <p>Ingrese su usuario y elija la forma en que desea recuperar su clave.</p>
            <p><input type="text" class="form-control" name="usr_rec" placeholder="Username" required></p>
-           <input type="submit" class="btn" value="Por preguntas de seguridad" />
-           <input type="submit" class="btn-2" value="Por medio de email" />
+           <input type="submit" class="btn" name="rec_preguntas" value="Por preguntas de seguridad" />
+           <input type="submit" class="btn-2" name="rec_correo"value="Por medio de email" />
         </form>
         <form action="Login.php">
             <input type="submit" class="btn-3" value="Cancelar" />
@@ -32,5 +32,4 @@
         </div>
      </div>
 </body>
->>>>>>> e320c807e88e7800db167abdc49f10c28a86058a
 </html>
