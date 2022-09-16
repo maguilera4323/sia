@@ -47,16 +47,16 @@
                     }
                     ?>
                     <br>
-		      	<h3 class="text-center mb-0">Welcome</h3>
-		      	<p class="text-center">Sign in by entering the information below</p>
+		      	<h3 class="text-center mb-0">Bienvenido</h3>
+		      	<p class="text-center">Ingrese sus datos de acceso</p>
 						<form action="#" class="login-form">
 		      		<div class="form-group">
 		      			<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-user"></span></div>
-		      			<input type="text" class="form-control" name="usuario" placeholder="Username" required />
+		      			<input type="text" class="form-control" name="usuario" style="text-transform: uppercase" placeholder="Usuario" required />
 		      		</div>
 	            <div class="form-group">
 	            	<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-lock"></span></div>
-	              <input type="password" class="form-control" name="clave" placeholder="Password" required />
+	              <input type="password" class="form-control" name="clave" placeholder="Contraseña" required />
 	            </div>
 	            <div class="form-group d-md-flex">
 								<div class="w-100 text-md-right">
@@ -64,7 +64,7 @@
 								</div>
 	            </div>
 	            <div class="form-group">
-	            	<button type="submit" class="btn form-control btn-primary rounded submit px-3">Get Started</button>
+	            	<button type="submit" class="btn form-control btn-primary rounded submit px-3">Iniciar Sesión</button>
 	            </div>
 				</div>
 			</div>
@@ -76,6 +76,7 @@
   <script src="js/popper.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/funciones.js"></script>
 
 	</body>
 </html>

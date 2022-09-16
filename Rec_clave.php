@@ -15,14 +15,14 @@
            <?php
                 if(isset($_GET["fallo"]) && $_GET["fallo"] == 'true'){
                     echo "<style>
-                div {color:white; padding:13px; background-color:red;}
-                </style>
-                <div>Usuario no existe </div>";
+                    div {color:white; padding:13px; background-color:red;}
+                    </style>
+                    <div>Usuario no existe </div>";
                 }
             ?>        
             <br>
            <p>Ingrese su usuario y elija la forma en que desea recuperar su clave.</p>
-           <p><input type="text" class="form-control" name="usr_rec" placeholder="Username" required></p>
+           <p><input type="text" class="form-control" name="usr_rec" style="text-transform: uppercase" placeholder="Usuario" required></p>
            <input type="submit" class="btn" name="rec_preguntas" value="Por preguntas de seguridad" />
            <input type="submit" class="btn-2" name="rec_correo"value="Por medio de email" />
         </form>

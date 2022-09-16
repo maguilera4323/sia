@@ -2,7 +2,7 @@
 
 include('conexion.php');
 
-$usuario_rec=mysqli_real_escape_string($conexion,$_POST['usr_rec']);
+$usuario_rec=mysqli_real_escape_string($conexion,(strtoupper($_POST['usr_rec'])));
 $metodo_recuperacion='';
 
 if (isset($_POST['rec_preguntas'])){
@@ -27,7 +27,7 @@ function verificarUsuario($user,$recuperacion){
         header("location: ../Rec_correo.html");
     
     }elseif ($array['contar']>0 && $recuperacion==='Por preguntas de seguridad'){
-        header("location:../Login.php");
+        header("location:../Rec_preguntas.html");
     }else{
         header("location:../Rec_clave.php?fallo=true");
     }

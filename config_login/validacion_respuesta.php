@@ -17,7 +17,7 @@ $array=mysqli_fetch_array($consulta);
 
     if ($array['contar']>0){
         echo 'hola mundo';
-        header("location: ../login2.php");
+        header("location: ../Login.php");
 
     }else{
         echo 'houston tenemos un problema';
