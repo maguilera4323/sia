@@ -17,7 +17,7 @@ if (!empty($usuario_rec)){
 
 function verificarUsuario($user,$recuperacion){
     include('conexion.php');
-    $query=("SELECT COUNT(*) as contar FROM usuarios_nueva WHERE usuario='$user'");
+    $query=("SELECT COUNT(*) as contar FROM usuarios WHERE usuario='$user'");
     $consulta=mysqli_query($conexion,$query);
     $array=mysqli_fetch_array($consulta);
     

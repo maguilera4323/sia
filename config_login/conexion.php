@@ -1,9 +1,9 @@
 <?php
 
-$server = "localhost";
-$usuario = "root";
-$contrasena = "";
-$db="crud_usuarios";
+$server = "20.25.134.34";
+$usuario = "admin_bd";
+$contrasena = "admin1234";
+$db="proyecto_cafeteria";
 
 $conexion = mysqli_connect($server, $usuario, $contrasena, $db);
 
