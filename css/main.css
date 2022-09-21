@@ -479,6 +479,8 @@ html, body{
 	line-height: 45px;
 	height: 45px;
 	font-size: 19px;
+
+
 }
 .sub-menu-options{
 	height: 0;
@@ -487,11 +489,14 @@ html, body{
 	background-color: rgba(255, 255, 255, .1);
 	transition: all .3s ease-in-out;
 }
-.sub-menu-options-show{
-	height: auto;
-	overflow-y: auto;
-	overflow-x: hidden;
+
+.sub-menu-options:hover{
+		height: auto;
+		overflow-y: auto;
+		overflow-x: hidden;
 }
+						
+
 /*=============Estilos contenido pagina*/
 .pageContent{
 	padding-left: 300px;

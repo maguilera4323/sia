@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -98,7 +102,16 @@
 				</div>
 				<figcaption>
 					<span>
-						Full Name Admin<br>
+						<?php
+						$usuario_conectado=$_SESSION['usuario_login'];
+
+						if(!isset($usuario_conectado)){
+							header("location:login.php");
+						}else{
+							echo "<span>$usuario_conectado </span>";
+						}
+						?>
+						<br>
 						<small>Administrador</small>
 					</span>
 				</figcaption>
@@ -227,7 +240,7 @@
 					</li>
 					<li class="full-width divider-menu-h"></li>
 					<li class="full-width">
-						<a href="inventory.html" class="full-width">
+						<a href="inventory.php" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-store"></i>
 							</div>
@@ -284,14 +297,14 @@
 				<nav class="navBar-options-list">
 					<ul class="list-unstyle">
 						<li class="btn-Notification" id="notifications">
-							<i class="zmdi zmdi-notifications"></i>
+							<i class="zmdi zmdi-notifications" href="config_login/salir.php"></i>
 							<div class="mdl-tooltip" for="notifications">Notifications</div>
 						</li>
 						<li class="btn-exit" id="btn-exit">
 							<i class="zmdi zmdi-power"></i>
-							<div class="mdl-tooltip" for="btn-exit">LogOut</div>
+							<div class="mdl-tooltip" for="btn-exit">Cerrar Sesión</div>
 						</li>
-						<li class="text-condensedLight noLink" ><small>User Name</small></li>
+						<li class="text-condensedLight noLink" ><small><?php echo "$usuario_conectado"; ?></small></li>
 						<li class="noLink">
 							<figure>
 								<img src="assets/img/avatar-male.png" alt="Avatar" class="img-responsive">

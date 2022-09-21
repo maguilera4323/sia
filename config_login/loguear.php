@@ -21,7 +21,7 @@ function iniciarSesion($array){
     if ($array['estado_usuario']==='Activo'){
          session_start();
         $_SESSION['usuario_login']=$array['usuario'];
-        header("location: ../home.html");
+        header("location: ../home.php");
     }else{
         header("location:../login.php?inactivo=true"); 
     }
