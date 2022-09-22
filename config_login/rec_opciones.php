@@ -17,7 +17,7 @@ if (!empty($usuario_rec)){
 
 function verificarUsuario($user,$recuperacion){
     include('conexion.php');
-    $query=("SELECT COUNT(*) as contar FROM usuarios WHERE usuario='$user'");
+    $query=("SELECT COUNT(*) as contar FROM TBL_usuarios WHERE usuario='$user'");
     $consulta=mysqli_query($conexion,$query);
     $array=mysqli_fetch_array($consulta);
     
@@ -27,7 +27,9 @@ function verificarUsuario($user,$recuperacion){
         header("location: ../Rec_correo.html");
     
     }elseif ($array['contar']>0 && $recuperacion==='Por preguntas de seguridad'){
-        header("location:../Rec_preguntas.html");
+        session_start();
+        $_SESSION['usuario_rec']=$user;
+        header("location:../Rec_preguntas.php");
     }else{
         header("location:../Rec_clave.php?fallo=true");
     }

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/RCstyle.css">
 </head>
 <body>
+    <div>
     <div class="formulario">
         <form action="config_login/rec_opciones.php" method="POST">
            <img src="images/CityCoffe.jpeg" width="100" height="100">
@@ -31,5 +32,6 @@
         </form>
         </div>
      </div>
+    </div>
 </body>
 </html>

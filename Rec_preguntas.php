@@ -11,9 +11,18 @@
     <div class="formulario">
         <img src="images/CityCoffe.jpeg" width="100" height="100">
         <h1>Seleccione una pregunta</h1>
+        <?php
+                if(isset($_GET["fallo"]) && $_GET["fallo"] == 'true'){
+                    echo "<style>
+                    div {color:white; padding:13px; background-color:red;}
+                    </style>
+                    <div>Usuario no existe </div>";
+                }
+            ?>        
+            <br>
         <form action="config_login/validacion_respuesta.php" method="POST">
             <select name="preguntas" id="preguntas">
-                <option value="Cual es su equipo de futbol favorito?">¿Cual es su equipo de futbol favorito</option>
+                <option value="Cual es su deporte favorito?">¿Cual es su deporte favorito</option>
                 <option value="Nombre de su mascota">¿Nombre de su mascota?</option>
                 <option value="Lugar de nacimiento">¿Lugar de nacimiento?</option>
                 <option value="Comida favorita">¿Comida favorita?</option>
