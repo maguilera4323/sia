@@ -301,7 +301,6 @@ session_start();
 							<div class="mdl-tooltip" for="notifications">Notifications</div>
 						</li>
 						<li class="btn-exit" id="btn-exit">
-						
 						<a href="login.php"><i class="zmdi zmdi-power"></i></a>
 							<div class="mdl-tooltip" for="btn-exit">Cerrar Sesión</div>
 						</li>
