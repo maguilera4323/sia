@@ -30,13 +30,19 @@
 						header("refresh:5;url=login.php");
 
 						echo '<div class="alert alert-success" text-center" role="alert">
-							Contraseña cambiada exitosamente. Se le redigirá a la página de Login en unos segundos...
+							Contraseña cambiada exitosamente. Se le redirigirá a la página de Login en unos segundos...
 					  	</div>';
                     }
 					
 					if(isset($_GET["fallo"]) && $_GET["fallo"] == 'true'){
 						echo '<div class="alert alert-danger text-center" role="alert">
 						La contraseña actual es inválida
+					  	</div>';
+					}
+
+					if(isset($_GET["exito"]) && $_GET["exito"] == 'false'){
+						echo '<div class="alert alert-warning text-center" role="alert">
+						Las contraseñas no coinciden. Ingrese nuevamente la nueva contraseña
 					  	</div>';
 					}
                     ?>
