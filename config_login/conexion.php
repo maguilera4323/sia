@@ -5,39 +5,15 @@ $usuario = "admin_bd";
 $contrasena = "admin1234";
 $db="proyecto_cafeteria";
 
-$conexion = mysqli_connect($server, $usuario, $contrasena, $db);
-
-if (!$conexion) {
-  die("Error de conexión: " . mysqli_connect_error());
+try {
+  $conexion = new PDO("mysql:host=$server;dbname=$db", $usuario, $contrasena);      
+  $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  echo "Conectado a la BD MySQL";
 }
-echo "Conectado a la BD MySQL";
 
-/* class ConnectionMySQL{
-    private $host;
-    private $user;
-    private $password;
-    private $database;
-    private $conexion;
-     
-    public function __construct(){ 
-    require_once "config_parametros_db.php";
-    $this->host=HOST;
-    $this->user=USER;
-    $this->password=PASSWORD;
-    $this->database=DATABASE;
-    }
-
-    public function CreateConnection(){
-        $conexion = new mysqli($this->host, $this->user, $this->password, $this->database);
-         if($conexion->connect_errno) {
-          echo 'Error de conexion';
-         }
-        }
-              
-    
-    public function CloseConnection(){
-         $conexion->close();
-        }
-} */
+catch(PDOException $e)
+{
+echo "Error de conexión: " . $e->getMessage();
+}
 
 ?> 

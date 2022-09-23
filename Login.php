@@ -29,21 +29,29 @@
                   <?php
                     if(isset($_GET["fallo"]) && $_GET["fallo"] == 'true')
                     {
-                        echo "<style>
+                        /* echo "<style>
                         div #alerta_datos_incorrectos{color:white; padding:13px; background-color:red;}
                         </style>
-                        <div id='alerta_datos_incorrectos'>Usuario y/o contraseña invalidos </div>";
+                        <div id='alerta_datos_incorrectos' class='text-center'>Usuario y/o contraseña invalidos </div>"; */
+						
+						echo '<div class="alert alert-danger" role="alert">
+						Usuario y/o contraseña invalidos
+					  	</div>';
                     }
                     ?>
 
                  <?php
                     if(isset($_GET["inactivo"]) && $_GET["inactivo"] == 'true')
                     {
-                        echo "<style>
+                        /* echo "<style>
                         div #alerta_user_inactivo{color:white; padding:13px; background-color:red;}
                         </style>
-                        <div id='alerta_user_inactivo'>Usuario inactivo. Comuniquese con el administrador del sistema</div>";
-                    }
+                        <div id='alerta_user_inactivo' class='text-center'>Usuario inactivo. Comuniquese con el administrador del sistema</div>"; */
+						
+						echo '<div class="alert alert-warning text-center" role="alert">
+							Usuario inactivo. Comuniquese con el administrador del sistema
+					  	</div>';
+                    	}
                     ?>
                     <br>
 		      	<h3 class="text-center mb-0">Bienvenido</h3>
@@ -54,18 +62,24 @@
 		      			<input type="text" class="form-control" name="usuario" style="text-transform: uppercase" placeholder="Usuario" required />
 		      		</div>
 	            <div class="form-group">
-	            	<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-lock ms-4">
-					</span> <i class="bi bi-eye-slash me-4" onclick="mostrarConstrasena()"></i>
+	            	<div class="icon d-flex align-items-center justify-content-center"><span> <i class="bi bi-eye-slash" onclick="mostrarConstrasena()"></i>
+					</span> 
 				</div>
 	              <input type="password" class="form-control" name="clave" id="clave" placeholder="Contraseña" required />
 	            </div>
 	            <div class="form-group d-md-flex">
-								<div class="w-100 text-md-right">
-									<a href="Rec_clave.php">¿Olvidó su contraseña?</a>
-								</div>
+						<div class="w-100 text-md-right" id=opcion_rec>
+							<a href="Rec_clave.php">¿Olvidó su contraseña?</a>
+						</div>
+	            </div>
+				<div class="form-group d-md-flex">
+						<div class="w-100 text-md-right">
+							<a href="nuevo_usuario.php"  id=opcion_reg>Registrese</a>
+						</div>
 	            </div>
 	            <div class="form-group">
-	            	<button type="submit" class="btn form-control btn-primary rounded submit px-3">Iniciar Sesión</button>
+	            	<button type="submit" class="btn form-control btn-primary rounded submit px-3"
+					data-bs-toggle="modal" data-bs-target="#exampleModal">Iniciar Sesión</button>
 	            </div>
 				</div>
 			</div>

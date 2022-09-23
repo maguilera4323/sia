@@ -297,11 +297,11 @@ session_start();
 				<nav class="navBar-options-list">
 					<ul class="list-unstyle">
 						<li class="btn-Notification" id="notifications">
-							<i class="zmdi zmdi-notifications" href="config_login/salir.php"></i>
+							<i class="zmdi zmdi-notifications"></i>
 							<div class="mdl-tooltip" for="notifications">Notifications</div>
 						</li>
 						<li class="btn-exit" id="btn-exit">
-							<i class="zmdi zmdi-power"></i>
+						<a href="config_login/salir.php"><i class="zmdi zmdi-power"></i></a>
 							<div class="mdl-tooltip" for="btn-exit">Cerrar Sesión</div>
 						</li>
 						<li class="text-condensedLight noLink" ><small><?php echo "$usuario_conectado"; ?></small></li>

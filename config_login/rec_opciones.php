@@ -2,8 +2,9 @@
 
 include('conexion.php');
 
-$usuario_rec=mysqli_real_escape_string($conexion,(strtoupper($_POST['usr_rec'])));
+$usuario_rec=strtoupper($_POST['usr_rec']);
 $metodo_recuperacion='';
+$array=array();
 
 if (isset($_POST['rec_preguntas'])){
     $metodo_recuperacion=$_POST['rec_preguntas'];
@@ -17,9 +18,12 @@ if (!empty($usuario_rec)){
 
 function verificarUsuario($user,$recuperacion){
     include('conexion.php');
-    $query=("SELECT COUNT(*) as contar FROM TBL_usuarios WHERE usuario='$user'");
-    $consulta=mysqli_query($conexion,$query);
-    $array=mysqli_fetch_array($consulta);
+    $consulta=$conexion->prepare("SELECT COUNT(*) as contar FROM TBL_usuarios WHERE usuario='$user'");
+    $consulta->execute();
+    $resultado=$consulta->fetchAll();
+    foreach($resultado as $fila){
+        $array['contar']=$fila['contar'];
+    }
     
     if ($array['contar']>0 && $recuperacion==='Por medio de email'){
         session_start();

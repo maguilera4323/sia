@@ -8344,3 +8344,7 @@ h1, h2, h3, h4, h5,
         border: 1px solid transparent;
         background: #b689b0;
         color: #fff; }
+
+    a #opcion_reg:hover, a #opcion_rec:hover{
+        color:white;
+    }

@@ -2,15 +2,21 @@
 
 include('conexion.php');
 
-$usuario=mysqli_real_escape_string($conexion,(strtoupper($_POST['usuario'])));
-$clave=mysqli_real_escape_string($conexion,(strtoupper($_POST['clave'])));
+$usuario=strtoupper($_POST['usuario']);
+$clave=$_POST['clave'];
+$array=array();
 
-$query=("SELECT count(*) as contar, usuario, estado_usuario FROM TBL_usuarios WHERE usuario='$usuario' and contrasena='$clave'
+$consulta=$conexion->prepare("SELECT count(*) as contar, usuario, estado_usuario FROM TBL_usuarios WHERE usuario='$usuario' and contrasena='$clave'
 GROUP BY usuario, estado_usuario LIMIT 1");
-$consulta=mysqli_query($conexion,$query);
-$array=mysqli_fetch_array($consulta);
+$consulta->execute();
+$resultado=$consulta->fetchAll(PDO::FETCH_ASSOC);
+foreach($resultado as $fila){
+    $array['contar']=$fila['contar'];
+    $array['usuario']=$fila['usuario'];
+    $array['estado_usuario']=$fila['estado_usuario'];
+}
 
-    if ($array['contar']>0){
+if ($array['contar']>0){
         iniciarSesion($array);
     }else{
         header("location:../login.php?fallo=true");
@@ -26,5 +32,4 @@ function iniciarSesion($array){
         header("location:../login.php?inactivo=true"); 
     }
 }
- 
 ?>

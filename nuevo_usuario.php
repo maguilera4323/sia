@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="es">
   <head>
-  	<title>Opciones de Recuperación de Contraseña</title>
+  	<title>Creación de Nuevo Usuario</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
@@ -15,37 +15,44 @@
 	<section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">
+            <form action="config_login/loguear.php" method="POST" id="formlg">
 				<div class="col-md-6 text-center mb-5">
+					<!-- <h2 class="heading-section">City Coffe</h2> -->
 				</div>
 			</div>
-		<form action="config_login/rec_opciones.php" method="POST" id="formlc">
+		<form action="config_login/loguear.php" method="POST" id="formlg">
 			<div class="row justify-content-center">
-				<div class="col-md-6 col-lg-4">
+				<div class="col-md-8 col-lg-9">
 					<div class="login-wrap py-5">
 		      	<div class="img d-flex align-items-center justify-content-center" style="background-image: url(images/CityCoffe.jpeg);"></div>
                   
-                    <?php
-                    if(isset($_GET["fallo"]) && $_GET["fallo"] == 'true')
-                    {
-						echo '<div class="alert alert-danger text-center" role="alert">
-						El usuario ingresado no existe en el sistema
-					  	</div>';
-                    }
-                    ?>
-					<br>
-				<h3 class="text-center mb-0">Recuperar Contraseña</h3>
-				<br>
-		      	<p class="text-center">Ingrese su usuario y elija la forma en que desea recuperar su clave.</p>
-				<form action="#" class="login-form">
+		      	<h3 class="text-center mb-2">Crear Usuario</h3>
+						<form action="#" class="login-form">
 		      		<div class="form-group">
-		      			<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-user"></span></div>
-		      			<input type="text" class="form-control" name="usr_rec" style="text-transform: uppercase" placeholder="Usuario" required />
+		      			<div ></div>
+						Usuario
+						<input type="text" class="form-control " name="usuario" placeholder="Ingrese usuario" required /> 
+						Nombre de usuario
+						<input type="text" class="form-control" name="usuario" placeholder="Ingrese nombre" required />
+						Rol
+						<select class="form-select" aria-label="Default select example">
+							<option selected>Seleccione...</option>
+							<option value="Activo">Activo</option>
+							<option value="Inactivo">Inactivo</option>
+							<option value="Bloqueado">Bloqueado</option>
+						</select>
+						Correo
+						<input type="text" class="form-control" name="usuario" placeholder="Ingrese correo" required />
+						Contraseña
+						<input type="text" class="form-control" name="usuario" placeholder="Ingrese contraseña" required />
+						Fecha de creación
+						<input type="text" class="form-control" name="usuario" placeholder="Fecha de creación" required />
+						Fecha de vencimiento
+						<input type="text" class="form-control" name="usuario" placeholder="Fecha de vencimiento" required />
 		      		</div>
-	            <div class="form-group">
-	            	<button type="submit" name="rec_preguntas" value="Por preguntas de seguridad" class="btn form-control btn-primary rounded submit px-3">Por Preguntas de Seguridad</button>
 	            </div>
-				<div class="form-group">
-	            	<button type="submit" name="rec_correo" value="Por medio de email" class="btn form-control btn-primary rounded submit px-3">Por Correo Electrónico</button>
+	            <div class="form-group">
+	            	<button type="submit" class="btn form-control btn-primary rounded submit px-3">Iniciar Sesión</button>
 	            </div>
 				</div>
 			</div>
