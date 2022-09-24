@@ -17,7 +17,6 @@
 			<div class="row justify-content-center">
             <form action="config_login/loguear.php" method="POST" id="formlg">
 				<div class="col-md-6 text-center mb-5">
-					<!-- <h2 class="heading-section">City Coffe</h2> -->
 				</div>
 			</div>
 		<form action="config_login/loguear.php" method="POST" id="formlg">
@@ -25,15 +24,9 @@
 				<div class="col-md-6 col-lg-4">
 					<div class="login-wrap py-5">
 		      	<div class="img d-flex align-items-center justify-content-center" style="background-image: url(images/CityCoffe.jpeg);"></div>
-                  
                   <?php
                     if(isset($_GET["fallo"]) && $_GET["fallo"] == 'true')
                     {
-                        /* echo "<style>
-                        div #alerta_datos_incorrectos{color:white; padding:13px; background-color:red;}
-                        </style>
-                        <div id='alerta_datos_incorrectos' class='text-center'>Usuario y/o contraseña invalidos </div>"; */
-						
 						echo '<div class="alert alert-danger" role="alert">
 						Usuario y/o contraseña invalidos
 					  	</div>';
@@ -43,11 +36,6 @@
                  <?php
                     if(isset($_GET["inactivo"]) && $_GET["inactivo"] == 'true')
                     {
-                        /* echo "<style>
-                        div #alerta_user_inactivo{color:white; padding:13px; background-color:red;}
-                        </style>
-                        <div id='alerta_user_inactivo' class='text-center'>Usuario inactivo. Comuniquese con el administrador del sistema</div>"; */
-						
 						echo '<div class="alert alert-warning text-center" role="alert">
 							Usuario inactivo. Comuniquese con el administrador del sistema
 					  	</div>';
@@ -62,10 +50,8 @@
 		      			<input type="text" class="form-control" name="usuario" style="text-transform: uppercase" placeholder="Usuario" required />
 		      		</div>
 	            <div class="form-group">
-	            	<div class="icon d-flex align-items-center justify-content-center"><span> <i class="bi bi-eye-slash" onclick="mostrarConstrasena()"></i>
-					</span> 
-				</div>
-	              <input type="password" class="form-control" name="clave" id="clave" placeholder="Contraseña" required />
+				<div class="icon d-flex align-items-center justify-content-center"><span> <i class="bi bi-eye-slash MostrarContrasena"></i></span></div>
+	              <input type="password" class="form-control clave" name="clave" id="clave" placeholder="Contraseña" required />
 	            </div>
 	            <div class="form-group d-md-flex">
 						<div class="w-100 text-md-right" id=opcion_rec>
@@ -91,10 +77,27 @@
 	<script src="js/popper.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/main.js"></script>
-	<script src="./js/funciones.js"></script>
+	<script src="js/funciones.js"></script>
 	<script src ="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"> </script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 	
+	<script>
+        window.addEventListener("load", function() {
+			showPassword = document.querySelector('.MostrarContrasena');
+			showPassword.addEventListener('click', () => {
+
+				clave = document.querySelector('.clave');
+
+				if ( clave.type === "text" ) {
+					clave.type = "password"
+					showPassword.classList.remove('bi-eye');
+				} else {
+					clave.type = "text"
+					showPassword.classList.toggle("bi-eye");
+				}
+				})
+		});
+    </script>
 </body>
 </html>
 
