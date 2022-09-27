@@ -15,13 +15,13 @@ foreach($resultado as $fila){
     $array['contrasena']=$fila['contrasena'];
 }
 
-    if ($array['contrasena']!=$contrasena_ant){
+if ($array['contrasena']!=$contrasena_ant){
         header("location: ../cambio_contrasena.php?fallo=true");
     }elseif (($array['contrasena']===$contrasena_ant) && ($contrasena_nueva===$conf_contrasena_nueva)){
         $consulta_update=$conexion->prepare("UPDATE TBL_usuarios set contrasena='$contrasena_nueva' where usuario='$usuario'");
         $consulta_update->execute();
         header("location: ../cambio_contrasena.php?exito=true");
     }else{
-        echo 'houston tenemos un problema';
+        header("location: ../cambio_contrasena.php?exito=false");
     } 
 ?> 

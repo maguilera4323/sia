@@ -15,44 +15,63 @@
 	<section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">
-            <form action="config_login/loguear.php" method="POST" id="formlg">
+            <form action="config_login/crear_usuario.php" method="POST" id="formlg">
 				<div class="col-md-6 text-center mb-5">
 					<!-- <h2 class="heading-section">City Coffe</h2> -->
 				</div>
 			</div>
-		<form action="config_login/loguear.php" method="POST" id="formlg">
+		<form action="config_login/crear_usuario.php" method="POST" id="formlg">
 			<div class="row justify-content-center">
 				<div class="col-md-8 col-lg-9">
 					<div class="login-wrap py-5">
 		      	<div class="img d-flex align-items-center justify-content-center" style="background-image: url(images/CityCoffe.jpeg);"></div>
                   
 		      	<h3 class="text-center mb-2">Crear Usuario</h3>
+
+				  <?php
+                    if(isset($_GET["exito"]) && $_GET["exito"] == 'true')
+                    {
+						header("refresh:5;url=login.php");
+
+						echo '<div class="alert alert-success" text-center" role="alert">
+							Usuario creado exitosamente. Se le redigirá a la página de Login en unos segundos...
+					  	</div>';
+                    }
+					
+					if(isset($_GET["exito"]) && $_GET["exito"] == 'false'){
+						echo '<div class="alert alert-danger text-center" role="alert">
+						Error desconocido
+					  	</div>';
+					}
+                    ?>
+					<br>
+
 						<form action="#" class="login-form">
 		      		<div class="form-group">
 		      			<div ></div>
 						Usuario
-						<input type="text" class="form-control " name="usuario" placeholder="Ingrese usuario" required /> 
+						<input type="text" class="form-control " name="usuario" style="text-transform: uppercase" placeholder="Ingrese usuario" required /> 
 						Nombre de usuario
-						<input type="text" class="form-control" name="usuario" placeholder="Ingrese nombre" required />
+						<input type="text" class="form-control" name="nombre" placeholder="Ingrese nombre" required />
 						Rol
-						<select class="form-select" aria-label="Default select example">
+						<select class="form-select" aria-label="Default select example" name="estado" id="estado">
 							<option selected>Seleccione...</option>
 							<option value="Activo">Activo</option>
 							<option value="Inactivo">Inactivo</option>
 							<option value="Bloqueado">Bloqueado</option>
 						</select>
 						Correo
-						<input type="text" class="form-control" name="usuario" placeholder="Ingrese correo" required />
+						<input type="email" class="form-control" name="correo" placeholder="Ingrese correo" required />
 						Contraseña
-						<input type="text" class="form-control" name="usuario" placeholder="Ingrese contraseña" required />
+						<input type="password" class="form-control" name="contrasena" placeholder="Ingrese contraseña" required />
 						Fecha de creación
-						<input type="text" class="form-control" name="usuario" placeholder="Fecha de creación" required />
+						<input type="text" class="form-control" name="fec_creacion" placeholder="Fecha de creación" required />
 						Fecha de vencimiento
-						<input type="text" class="form-control" name="usuario" placeholder="Fecha de vencimiento" required />
+						<input type="text" class="form-control" name="fec_vencimiento" placeholder="Fecha de vencimiento" required />
 		      		</div>
 	            </div>
 	            <div class="form-group">
-	            	<button type="submit" class="btn form-control btn-primary rounded submit px-3">Iniciar Sesión</button>
+	            	<button type="submit" class="btn form-control btn-primary rounded submit px-3">Crear</button>
 	            </div>
 				</div>
 			</div>

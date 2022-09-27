@@ -22,7 +22,6 @@ session_start();
 	<script src="js/main.js" ></script>
 </head>
 <body>
-	<!-- Notifications area -->
 	<section class="full-width container-notifications">
 		<div class="full-width container-notifications-bg btn-Notification"></div>
 	    <section class="NotificationArea">
@@ -89,7 +88,6 @@ session_start();
 	        </a>  
 	    </section>
 	</section>
-	<!-- navLateral -->
 	<section class="full-width navLateral">
 		<div class="full-width navLateral-bg btn-menu"></div>
 		<div class="full-width navLateral-body">
@@ -287,9 +285,7 @@ session_start();
 			</nav>
 		</div>
 	</section>
-	<!-- pageContent -->
 	<section class="full-width pageContent">
-		<!-- navBar -->
 		<div class="full-width navBar">
 			<div class="full-width navBar-options">
 				<i class="zmdi zmdi-swap btn-menu" id="btn-menu"></i>	
@@ -316,7 +312,6 @@ session_start();
 		</div>
 		<section class="full-width text-center" style="padding: 40px 0;">
 			<h3 class="text-center tittles">RESPONSIVE TILES</h3>
-			<!-- Tiles -->
 			<article class="full-width tile">
 				<div class="tile-text">
 					<span class="text-condensedLight">
@@ -374,7 +369,6 @@ session_start();
 		</section>
 		<section class="full-width" style="margin: 30px 0;">
 			<h3 class="text-center tittles">RESPONSIVE TIMELINE</h3>
-			<!-- TimeLine -->
 			<div id="timeline-c" class="timeline-c">
 				<div class="timeline-c-box">
 	                <div class="timeline-c-box-icon bg-info">

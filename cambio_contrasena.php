@@ -30,13 +30,19 @@
 						header("refresh:5;url=login.php");
 
 						echo '<div class="alert alert-success" text-center" role="alert">
-							Contraseña cambiada exitosamente. Se le redigirá a la página de Login en unos segundos...
+							Contraseña cambiada exitosamente. Se le redirigirá a la página de Login en unos segundos...
 					  	</div>';
                     }
 					
 					if(isset($_GET["fallo"]) && $_GET["fallo"] == 'true'){
 						echo '<div class="alert alert-danger text-center" role="alert">
 						La contraseña actual es inválida
+					  	</div>';
+					}
+
+					if(isset($_GET["exito"]) && $_GET["exito"] == 'false'){
+						echo '<div class="alert alert-warning text-center" role="alert">
+						Las contraseñas no coinciden. Ingrese nuevamente la nueva contraseña
 					  	</div>';
 					}
                     ?>
@@ -46,22 +52,22 @@
 		      	<p class="text-center">Ingrese su actual contraseña y elija una nueva contraseña.</p>
 				<form action="#" class="login-form">
 					<div class="form-group">
-						<div class="icon d-flex align-items-center justify-content-center"><span> <i class="bi bi-eye-slash" onclick="mostrarConstrasena()"></i>
+						<div class="icon d-flex align-items-center justify-content-center"><span> <i class="bi bi-eye-slash MostrarContrasena"></i>
 						</span> 
 					</div>
-					<input type="password" class="form-control" name="clave_ant" id="clave" placeholder="Contraseña actual" required />
+					<input type="password" class="form-control clave" name="clave_ant" placeholder="Contraseña actual" required />
 					</div>
 					<div class="form-group">
-	            		<div class="icon d-flex align-items-center justify-content-center"><span> <i class="bi bi-eye-slash" onclick="mostrarConstrasena()"></i>
+	            		<div class="icon d-flex align-items-center justify-content-center"><span> <i class="bi bi-eye-slash MostrarContrasena"></i>
 						</span> 
 					</div>
-	              	<input type="password" class="form-control" name="clave_new" id="clave" placeholder="Contraseña nueva" required />
+	              	<input type="password" class="form-control clave" name="clave_new" placeholder="Contraseña nueva" required />
 	            	</div>
 					<div class="form-group">
-	            		<div class="icon d-flex align-items-center justify-content-center"><span> <i class="bi bi-eye-slash" onclick="mostrarConstrasena()"></i>
+	            		<div class="icon d-flex align-items-center justify-content-center"><span> <i class="bi bi-eye-slash iconoClaveNueva" onclick="mostrarContrasenaNueva()"></i>
 						</span> 
 					</div>
-	             	<input type="password" class="form-control" name="conf_clave_new" id="clave" placeholder="Confirme Contraseña Nueva" required />
+	             	<input type="password" class="form-control conf_clave_new" name="conf_clave_new" placeholder="Confirme Contraseña Nueva" required />
 	            	</div>
 	            <div class="form-group">
 	            	<button type="submit" name="rec_preguntas" value="Por preguntas de seguridad" class="btn form-control btn-primary rounded submit px-3">Enviar</button>
@@ -80,6 +86,23 @@
 	<script src ="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"> </script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 	
+	<script>
+        window.addEventListener("load", function() {
+			showPassword = document.querySelector('.MostrarContrasena');
+			showPassword.addEventListener('click', () => {
+
+				clave = document.querySelector('.clave');
+
+				if ( clave.type === "text" ) {
+					clave.type = "password"
+					showPassword.classList.remove('bi-eye');
+				} else {
+					clave.type = "text"
+					showPassword.classList.toggle("bi-eye");
+				}
+				})
+		});
+    </script>
 </body>
 </html>
 
