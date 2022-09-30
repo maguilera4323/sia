@@ -1,3 +1,10 @@
+<?php
+	session_start();
+	if (!isset($_SESSION['count'])){
+ 		$_SESSION['count'] = 1;
+	}
+?>
+
 <!doctype html>
 <html lang="es">
   <head>
@@ -30,7 +37,10 @@
 						echo '<div class="alert alert-danger" role="alert">
 						Usuario y/o contraseña invalidos
 					  	</div>';
-                    }
+
+					$_SESSION['count']+=1;
+					/* echo $_SESSION["count"]; */
+					}
                     ?>
 
                  <?php
@@ -41,18 +51,33 @@
 					  	</div>';
                     	}
                     ?>
+
+					<?php
+                    if(isset($_GET["bloqueado"]) && $_GET["bloqueado"] == 'true')
+                    {
+						echo '<div class="alert alert-warning text-center" role="alert">
+							Usuario bloqueado. Comuniquese con el administrador del sistema
+					  	</div>';
+						  $_SESSION['count'] = 0;
+                    	}
+
+                    ?>
+
                     <br>
 		      	<h3 class="text-center mb-0">Bienvenido</h3>
 		      	<p class="text-center">Ingrese sus datos de acceso</p>
 						<form action="#" class="login-form">
 		      		<div class="form-group">
 		      			<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-user"></span></div>
-		      			<input type="text" class="form-control" name="usuario" style="text-transform: uppercase" placeholder="Usuario" required />
+		      			<input type="text" class="form-control" name="usuario" id="usuario" style="text-transform: uppercase" placeholder="Usuario" 
+						required pattern="[A-Za-zñÑ!#$%&/=?¡*.-_@\~^]+" title="Ingrese solo letras y números sin espacios" />
 		      		</div>
 	            <div class="form-group">
-				<div class="icon d-flex align-items-center justify-content-center"><span> <i class="bi bi-eye-slash MostrarContrasena"></i></span></div>
-	              <input type="password" class="form-control clave" name="clave" id="clave" placeholder="Contraseña" required />
+				<div class="icon d-flex align-items-center justify-content-center"><span> <i class="bi bi-eye-slash icono" onclick="mostrarContrasena()"></i></span></div>
+	              <input type="password" class="form-control clave" name="clave" id="clave" minlength="5" maxlength="20" placeholder="Contraseña"
+				   required pattern="[A-ZÁÉÍÓÚÜÑa-zñáéíóúüñ0-9!#$%&/=?¡*.-_@\~^]+" title="Ingrese su contraseña sin espacios"/>
 	            </div>
+				<input type="hidden" class="form-control" name="contador" id="contador" value=<?php echo $_SESSION["count"] ?> />
 	            <div class="form-group d-md-flex">
 						<div class="w-100 text-md-right" id=opcion_rec>
 							<a href="Rec_clave.php">¿Olvidó su contraseña?</a>
@@ -80,24 +105,6 @@
 	<script src="js/funciones.js"></script>
 	<script src ="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"> </script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-	
-	<script>
-        window.addEventListener("load", function() {
-			showPassword = document.querySelector('.MostrarContrasena');
-			showPassword.addEventListener('click', () => {
 
-				clave = document.querySelector('.clave');
-
-				if ( clave.type === "text" ) {
-					clave.type = "password"
-					showPassword.classList.remove('bi-eye');
-				} else {
-					clave.type = "text"
-					showPassword.classList.toggle("bi-eye");
-				}
-				})
-		});
-    </script>
 </body>
 </html>
-

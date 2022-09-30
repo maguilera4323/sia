@@ -39,7 +39,8 @@
 				<form action="#" class="login-form">
 		      		<div class="form-group">
 		      			<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-user"></span></div>
-		      			<input type="text" class="form-control" name="usr_rec" style="text-transform: uppercase" placeholder="Usuario" required />
+		      			<input type="text" class="form-control" name="usr_rec" style="text-transform: uppercase" placeholder="Usuario" required 
+						  pattern="[A-Za-z]+" title="Ingrese solo letras y números, sin espacios"/>
 		      		</div>
 	            <div class="form-group">
 	            	<button type="submit" name="rec_preguntas" value="Por preguntas de seguridad" class="btn form-control btn-primary rounded submit px-3">Por Preguntas de Seguridad</button>

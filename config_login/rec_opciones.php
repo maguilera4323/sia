@@ -18,19 +18,19 @@ if (!empty($usuario_rec)){
 
 function verificarUsuario($user,$recuperacion){
     include('conexion.php');
-    $consulta=$conexion->prepare("SELECT COUNT(*) as contar FROM TBL_usuarios WHERE usuario='$user'");
+    $consulta=$conexion->prepare("SELECT COUNT(*) as registro_encontrado FROM TBL_usuarios WHERE usuario='$user'");
     $consulta->execute();
     $resultado=$consulta->fetchAll();
     foreach($resultado as $fila){
-        $array['contar']=$fila['contar'];
+        $array['registro_encontrado']=$fila['registro_encontrado'];
     }
     
-    if ($array['contar']>0 && $recuperacion==='Por medio de email'){
+    if ($array['registro_encontrado']>0 && $recuperacion==='Por medio de email'){
         session_start();
         $_SESSION['usuario_rec']=$user;
-        header("location: ../Rec_correo.html");
+        header("location: ../Rec_correos.php");
     
-    }elseif ($array['contar']>0 && $recuperacion==='Por preguntas de seguridad'){
+    }elseif ($array['registro_encontrado']>0 && $recuperacion==='Por preguntas de seguridad'){
         session_start();
         $_SESSION['usuario_rec']=$user;
         header("location:../Rec_preguntas.php");

@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="es">
   <head>
-  	<title>Recuperación por Preguntas de Seguridad</title>
+  	<title>Recuperación por Correo Electrónico</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
@@ -18,7 +18,7 @@
 				<div class="col-md-6 text-center mb-5">
 				</div>
 			</div>
-		<form action="config_login/validacion_respuesta.php" method="POST" id="formlc">
+		<form action="#" method="POST" id="formlc">
 			<div class="row justify-content-center">
 				<div class="col-md-6 col-lg-4">
 					<div class="login-wrap py-5">
@@ -27,31 +27,25 @@
                     <?php
                     if(isset($_GET["fallo"]) && $_GET["fallo"] == 'true')
                     {
-						header("refresh:5;url=login.php");
-
 						echo '<div class="alert alert-danger text-center" role="alert">
-						Respuesta inválida, su usuario ha sido bloqueado. Redirigiendo
-						a la página de login...
+						El usuario ingresado no existe en el sistema
 					  	</div>';
                     }
                     ?>
 					<br>
-				<h3 class="text-center mb-0">Recuperar por Preguntas</h3>
-				<br>
-		      	<p class="text-center">Seleccione una pregunta de la lista y responda correctamente.</p>
-				  <select class="form-select form-select-sm" aria-label=".form-select-sm examplejustify-content-center " name="preguntas" id="preguntas">
-				    <option selected>Seleccione una pregunta</option>
-				    <option value="Cual es su deporte favorito?">¿Cual es su deporte favorito</option>
-					<option value="Nombre de su mascota">¿Nombre de su mascota?</option>
-					<option value="Lugar de nacimiento">¿Lugar de nacimiento?</option>
-					<option value="Comida favorita">¿Comida favorita?</option>
-                 </select>
+				<!-- <h3 class="text-center mb-0">Recuperar Contraseña con su Correo Electrónico</h3>
+				<br> -->
+		      	<p class="text-center">Ingrese su correo electrónico. En unos minutos le llegará un correo con las
+					instrucciones para continuar la recuperación de su contraseña
+				</p>
 				<form action="#" class="login-form">
 		      		<div class="form-group">
-		      			<input type="text" class="form-control" name="respuesta" placeholder="Respuesta" required />
+		      			<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-user"></span></div>
+		      			<input type="email" class="form-control" name="usr_rec" placeholder="Correo Electrónico" required 
+						  pattern="[A-Za-z@._]+" title="Ingrese su dirección de correo electrónico sin espacios"/>
 		      		</div>
-	            <div class="form-group">
-	            	<button type="submit" class="btn form-control btn-primary rounded submit px-3">Enviar Respuesta</button>
+				<div class="form-group">
+	            	<button type="submit" name="rec_correo" value="Por medio de email" class="btn form-control btn-primary rounded submit px-3">Enviar</button>
 	            </div>
 				</div>
 			</div>

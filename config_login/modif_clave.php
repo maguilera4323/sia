@@ -8,6 +8,8 @@ $contrasena_nueva=$_POST['clave_new'];
 $conf_contrasena_nueva=$_POST['conf_clave_new'];
 $usuario=$_SESSION['usuario_rec'];
 
+echo $usuario;
+
 $consulta_select=$conexion->prepare("SELECT contrasena FROM TBL_usuarios WHERE usuario='$usuario'");
 $consulta_select->execute();
 $resultado=$consulta_select->fetchAll();
@@ -23,5 +25,5 @@ if ($array['contrasena']!=$contrasena_ant){
         header("location: ../cambio_contrasena.php?exito=true");
     }else{
         header("location: ../cambio_contrasena.php?exito=false");
-    } 
+    }  
 ?> 

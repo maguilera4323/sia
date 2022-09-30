@@ -1,37 +1,36 @@
 function mostrarContrasena(){
-    window.addEventListener("load", function() {
-        showPassword = document.querySelector('.MostrarContrasena');
-        showPassword.addEventListener('click', () => {
+        let tipo = document.getElementById("clave");
+        if(tipo.type == "password"){
+            tipo.type = "text";
+            $('.icono').removeClass('bi bi-eye-slash').addClass('bi bi-eye');
+        }else{
+            tipo.type = "password";
+            $('.icono').removeClass('bi bi-eye').addClass('bi bi-eye-slash');
+        }
+    }
 
-            clave = document.querySelector('.clave');
 
-            if ( clave.type === "text" ) {
-                clave.type = "password"
-                showPassword.classList.remove('bi-eye');
-            } else {
-                clave.type = "text"
-                showPassword.classList.toggle("bi-eye");
-            }
-            })
-    });
+function mostrarContrasenaNueva(){
+     let tipo = document.getElementById("clave_new");
+    if(tipo.type == "password"){
+        tipo.type = "text";
+        $('.icono_nuevo').removeClass('bi bi-eye-slash').addClass('bi bi-eye');
+    }else{
+        tipo.type = "password";
+        $('.icono_nuevo').removeClass('bi bi-eye').addClass('bi bi-eye-slash');
+    }
 }
 
-/* function mostrarContrasenaNueva(){
-    window.addEventListener("load", function() {
-        showPassword = document.querySelector('.iconoClaveNueva');
-        showPassword.addEventListener('click', () => {
-            clave_nueva = document.querySelector('.clave_new');
-            conf_clave_nueva=document.querySelector('.conf_clave_new');
+function mostrarConfContrasenaNueva(){
+    let tipo = document.getElementById("conf_clave_new");
+   if(tipo.type == "password"){
+       tipo.type = "text";
+       $('.icono_nuevoconf').removeClass('bi bi-eye-slash').addClass('bi bi-eye');
+   }else{
+       tipo.type = "password";
+       $('.icono_nuevoconf').removeClass('bi bi-eye').addClass('bi bi-eye-slash');
+   }
+}
 
-            if (clave_nueva.type === "text" ) {
-                clave_nueva.type = "password"
-                conf_clave_nueva.type = "password"
-                showPassword.classList.remove('bi-eye-slash');
-            } else {
-                clave_nueva.type = "text"
-                conf_clave_nueva.type = "text"
-                showPassword.classList.toggle("bi-eye-slash");
-            }
-            })
-    }); */
+
 
